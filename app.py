@@ -26,8 +26,7 @@ app = Flask(__name__)
 
 uri = (
     os.environ.get('DATABASE_URL', 'postgres:///melodic'))
-if uri.startswith("postgres://"):
-    uri = uri.replace("postgres://", "postgresql://", 1)
+if uri.startswith("postgresql://"):
     app.config['SQLALCHEMY_DATABASE_URI'] = uri
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
