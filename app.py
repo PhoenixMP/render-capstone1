@@ -3,7 +3,6 @@ from flask import Flask, render_template, request, url_for, session, g, redirect
 from sqlalchemy.exc import IntegrityError
 from models import db, connect_db, User, Melody, Favorited_Track, User_Favorited_Track
 from forms import UserAddForm, LoginForm, UserEditForm, SearchTrackForm, SearchGenreForm, SaveMelodyForm
-from secrets_1 import API_CLIENT_ID, API_SECRET_KEY
 from datetime import datetime, timedelta
 
 
@@ -17,6 +16,10 @@ API_SEARCH_BASE_URL = "https://api.spotify.com/v1/search"
 API_REC_BASE_URL = "https://api.spotify.com/v1/recommendations"
 API_TOP_BASE_URL = "https://api.spotify.com/v1/artists"
 API_DISNEY_BASE_URL = "https://api.spotify.com/v1/playlists"
+
+
+API_CLIENT_ID = os.environ.get('API_CLIENT_ID')
+API_SECRET_KEY = os.environ.get('API_SECRET_KEY')
 
 
 app = Flask(__name__)
